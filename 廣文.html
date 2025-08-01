@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廣文生日快樂</title>
+    <style>
+        body {
+            background-image: url('社會信用分數.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            color: white; /* 確保文字在深色背景上可見 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 增加文字可讀性 */
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景以提高可讀性 */
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .button {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #4CAF50; /* 綠色按鈕 */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+            margin-bottom: 20px;
+        }
+        .button:hover {
+            background-color: #45a049; /* 滑鼠懸停時顏色變深 */
+            transform: scale(1.05);
+        }
+        .count-display {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>祝福廣文生日快樂！</h1>
+        <button class="button" onclick="incrementCount()">點我獻上祝福</button>
+        <div class="count-display">
+            總計：<span id="count">0</span> 次
+        </div>
+    </div>
+
+    <script>
+        let count = 0;
+        const countSpan = document.getElementById('count');
+
+        function incrementCount() {
+            count++;
+            countSpan.textContent = count;
+        }
+    </script>
+
+</body>
+</html>
