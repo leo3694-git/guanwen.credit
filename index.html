@@ -74,22 +74,30 @@
         }
     </script>
 </body>
-    <script type="module">
+<script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: "AIzaSyCzU_OPF_0weZ9hE7TYAUhMWmbujKf8ywc",
-    authDomain: "guanwen-s-social.firebaseapp.com",
-    projectId: "guanwen-s-social",
-    storageBucket: "guanwen-s-social.firebasestorage.app",
-    messagingSenderId: "897135520138",
-    appId: "1:897135520138:web:0caf206267e4bae0d14073"
+    apiKey: "AIzaSyCtt_7UxpeDO7GuXzA517qgB1b1h7sh32c",
+    authDomain: "click-time-record.firebaseapp.com",
+    databaseURL: "https://click-time-record-default-rtdb.firebaseio.com",
+    projectId: "click-time-record",
+    storageBucket: "click-time-record.firebasestorage.app",
+    messagingSenderId: "1081983245597",
+    appId: "1:1081983245597:web:598c5499736d0e752e55f4",
+    measurementId: "G-8ZL4S3VJGF"
   };
 
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 </script>
