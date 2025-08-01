@@ -64,7 +64,7 @@
     <div id="counter">0</div>
 
     <script type="module">
-        // 匯入 Firebase 核心和 Realtime Database SDK
+        // 匯入 Firebase 核心、Realtime Database 和 Analytics SDK
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
         import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
@@ -87,9 +87,9 @@
         const database = getDatabase(app); // 取得 Realtime Database 服務
 
         const counterElement = document.getElementById('counter');
-        const countRef = ref(database, 'birthday_wishes/guangwen'); // 建立一個資料庫參考
+        const countRef = ref(database, 'birthday_wishes/guangwen'); // 資料庫參考路徑
 
-        // 監聽資料庫中的資料變動，並更新網頁上的計數器
+        // 在網頁載入時，從資料庫讀取並顯示目前的計數
         onValue(countRef, (snapshot) => {
             const currentCount = snapshot.val();
             if (currentCount !== null) {
@@ -97,15 +97,15 @@
             }
         });
 
-        // 建立一個全域函式，以便在按鈕的 onclick 事件中呼叫
+        // 建立全域函式，供按鈕點擊事件呼叫
         window.incrementCounter = function() {
-            // 從資料庫中讀取目前的計數，然後增加 1
+            // 從資料庫讀取一次最新數據，然後更新
             onValue(countRef, (snapshot) => {
                 let currentCount = snapshot.val() || 0;
                 currentCount++;
-                set(countRef, currentCount); // 將新的計數寫回資料庫
+                set(countRef, currentCount); // 將新值寫回資料庫
             }, {
-                onlyOnce: true // 只讀取一次，避免無限迴圈
+                onlyOnce: true
             });
         }
     </script>
